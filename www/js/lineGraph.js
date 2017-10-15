@@ -29,11 +29,11 @@
     // 現在の年
     var nowYear = nowDate.getFullYear();
     // 現在の月
-    var nowMonth = nowDate.getMonth() + 1;
+    var nowMonth = nowDate.getMonth();
     // 半年前の年
     var pastYear =  pastDate.getFullYear();
     // 半年前の月
-    var pastMonth = pastDate.getMonth() + 1;
+    var pastMonth = pastDate.getMonth();
 
 // localstrage用データ
     // bank1
