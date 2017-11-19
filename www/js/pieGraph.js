@@ -170,21 +170,37 @@
         // 現在の年
         var pieNowYear = nowDate.getFullYear();
         // 現在の月
-        var pieNowMonth = nowDate.getMonth() + 1;
+        var pieNowMonth = nowDate.getMonth();
+        // 総額
+        var pieTotal = 0 * 1;
         //  bank1
         var pieBalances1 = JSON.parse(localStorage.getItem("balanceList1"));
-        var pieBalances1Data = pieBalances1[nowYear][pieNowMonth]['y'];
+        var pieBalances1Data = 0;
+        if(pieBalances1[nowYear][pieNowMonth]['y']){
+            pieBalances1Data = pieBalances1[nowYear][pieNowMonth]['y'];
+            pieTotal += parseInt(pieBalances1Data);
+        }        
         //  bank2
         var pieBalances2 = JSON.parse(localStorage.getItem("balanceList2"));
-        var pieBalances2Data = pieBalances2[nowYear][pieNowMonth]['y'];
+        var pieBalances2Data = 0;
+        if(pieBalances2[nowYear][pieNowMonth]['y']){
+           pieBalances2Data = pieBalances2[nowYear][pieNowMonth]['y']; 
+           pieTotal += parseInt(pieBalances2Data);
+        }        
         //  bank3
         var pieBalances3 = JSON.parse(localStorage.getItem("balanceList3"));
-        var pieBalances3Data = pieBalances3[nowYear][pieNowMonth]['y'];
+        var pieBalances3Data = 0;
+        if(pieBalances3[nowYear][pieNowMonth]['y']){
+            pieBalances3Data = pieBalances3[nowYear][pieNowMonth]['y'];
+            pieTotal += parseInt(pieBalances3Data);
+        }
         //  bank4
         var pieBalances4 = JSON.parse(localStorage.getItem("balanceList4"));
-        var pieBalances4Data = pieBalances4[nowYear][pieNowMonth]['y'];
-        
-        var pieTotal = pieBalances1Data + pieBalances2Data + pieBalances3Data + pieBalances4Data;
+        var pieBalances4Data = 0;
+        if(pieBalances4[nowYear][pieNowMonth]['y']){
+            pieBalances4Data = pieBalances4[nowYear][pieNowMonth]['y'];
+            pieTotal += parseInt(pieBalances4Data);
+        }
         
     // 当月分データを作成
     var pieData = [

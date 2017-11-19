@@ -91,6 +91,9 @@ function hideOK(id) {
     // グラフ更新
     graphReload();
     
+    // 円グラフ更新
+    pieReload();
+    
     document.getElementById(id).remove();
     
 };
@@ -121,20 +124,36 @@ function pieHideOK(id) {
         var pieSelectYear = document.getElementById("pie_year").value;
         // 選択月
         var pieSelectMonth = document.getElementById("pie_month").value;
+        // 総額
+        var pieSelectTotal = 0 * 1;
         //  bank1
         var pieSelectBalances1 = JSON.parse(localStorage.getItem("balanceList1"));
-        var pieSelectBalances1Data = pieSelectBalances1[pieSelectYear][pieSelectMonth]['y'];
+        var pieSelectBalances1Data = 0 * 1;
+        if(pieSelectBalances1[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances1Data = pieBalances1[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances1Data);
+        }        
         //  bank2
         var pieSelectBalances2 = JSON.parse(localStorage.getItem("balanceList2"));
-        var pieSelectBalances2Data = pieSelectBalances2[pieSelectYear][pieSelectMonth]['y'];
+        var pieSelectBalances2Data = 0 * 1;
+        if(pieSelectBalances2[pieSelectYear][pieSelectMonth]['y']){
+           pieSelectBalances2Data = pieBalances2[pieSelectYear][pieSelectMonth]['y']; 
+           pieSelectTotal += parseInt(pieSelectBalances2Data);
+        }        
         //  bank3
         var pieSelectBalances3 = JSON.parse(localStorage.getItem("balanceList3"));
-        var pieSelectBalances3Data = pieSelectBalances3[pieSelectYear][pieSelectMonth]['y'];
+        var pieSelectBalances3Data = 0 * 1;
+        if(pieSelectBalances3[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances3Data = pieBalances3[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances3Data);
+        }
         //  bank4
         var pieSelectBalances4 = JSON.parse(localStorage.getItem("balanceList4"));
-        var pieSelectBalances4Data = pieSelectBalances4[pieSelectYear][pieSelectMonth]['y'];
-        
-        var pieSelectTotal = pieSelectBalances1Data + pieSelectBalances2Data + pieSelectBalances3Data + pieSelectBalances4Data;
+        var pieSelectBalances4Data = 0 * 1;
+        if(pieSelectBalances4[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances4Data = pieBalances4[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances4Data);
+        }
         
     // 当月分データを作成
     var pieSelectData = [
@@ -186,3 +205,100 @@ function pieHideOK(id) {
     document.getElementById(id).remove();
     
 };
+
+// 円グラフリロード処理
+function pieReload(){
+    var str = document.getElementById("chart2_title").innerHTML;
+    var year = str.substr(0, 4);
+    var month = str.substr(5, 2);
+    
+    // 銀行名データを取得
+    var pieBanks = JSON.parse(localStorage.getItem("bankList"));
+    // グラフ用データを更新
+        // 選択年
+        var pieSelectYear = year;
+        // 選択月
+        var pieSelectMonth = parseInt(month) - 1;
+        // 総額
+        var pieSelectTotal = 0 * 1;
+        //  bank1
+        var pieSelectBalances1 = JSON.parse(localStorage.getItem("balanceList1"));
+        var pieSelectBalances1Data = 0 * 1;
+        if(pieSelectBalances1[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances1Data = pieBalances1[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances1Data);
+        }        
+        //  bank2
+        var pieSelectBalances2 = JSON.parse(localStorage.getItem("balanceList2"));
+        var pieSelectBalances2Data = 0 * 1;
+        if(pieSelectBalances2[pieSelectYear][pieSelectMonth]['y']){
+           pieSelectBalances2Data = pieBalances2[pieSelectYear][pieSelectMonth]['y']; 
+           pieSelectTotal += parseInt(pieSelectBalances2Data);
+        }        
+        //  bank3
+        var pieSelectBalances3 = JSON.parse(localStorage.getItem("balanceList3"));
+        var pieSelectBalances3Data = 0 * 1;
+        if(pieSelectBalances3[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances3Data = pieBalances3[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances3Data);
+        }
+        //  bank4
+        var pieSelectBalances4 = JSON.parse(localStorage.getItem("balanceList4"));
+        var pieSelectBalances4Data = 0 * 1;
+        if(pieSelectBalances4[pieSelectYear][pieSelectMonth]['y']){
+            pieSelectBalances4Data = pieBalances4[pieSelectYear][pieSelectMonth]['y'];
+            pieSelectTotal += parseInt(pieSelectBalances4Data);
+        }
+        
+    // 当月分データを作成
+    var pieSelectData = [
+        [pieBanks.bank1, pieSelectBalances1Data], 
+        [pieBanks.bank2, pieSelectBalances2Data],
+        [pieBanks.bank3, pieSelectBalances3Data],
+        [pieBanks.bank4, pieSelectBalances4Data]
+    ];
+    // グラフ更新
+    rePlot2 = jQuery.jqplot('chart2', 
+    [pieSelectData], 
+    {
+        seriesColors:['#ff9f40','#ffcd56','#4bc0c0','#36a2eb'],
+        title: '', 
+        seriesDefaults: {
+            shadow: false, 
+            renderer: jQuery.jqplot.PieRenderer, 
+            rendererOptions: { 
+            startAngle: 180, 
+            sliceMargin: 4, 
+            showDataLabels: true } 
+        }, 
+        legend: { show:false, location: 'se' },
+        // グラフ全体を囲むグリッドの設定            												
+        grid: {														
+            // グラフを囲む枠線の太さ、0で消える														
+            borderWidth: 0,														
+            // 背景色を透明に														
+            background: 'transparent',														
+            // 影もいらない														
+            shadow: false,														
+        }
+    }
+    );    
+    rePlot2.replot();
+    // 円グラフタイトルを設定
+    document.getElementById("chart2_title").innerHTML = pieSelectYear + '/' + (parseInt(pieSelectMonth, 10) + 1) + '　total : ' + pieSelectTotal;
+    // 円グラフラベル設定
+    document.getElementById("pie_bank01").innerHTML = pieBanks.bank1;
+    document.getElementById("pie_bank02").innerHTML = pieBanks.bank2;
+    document.getElementById("pie_bank03").innerHTML = pieBanks.bank3;
+    document.getElementById("pie_bank04").innerHTML = pieBanks.bank4;
+    // 円グラフデータ設定
+    document.getElementById("pie_value01").innerHTML = pieSelectBalances1Data;
+    document.getElementById("pie_value02").innerHTML = pieSelectBalances2Data;
+    document.getElementById("pie_value03").innerHTML = pieSelectBalances3Data;
+    document.getElementById("pie_value04").innerHTML = pieSelectBalances4Data;
+}
+
+
+
+
+

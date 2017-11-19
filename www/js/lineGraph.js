@@ -36,234 +36,317 @@
     var pastMonth = pastDate.getMonth();
 
 // localstrage用データ
+    // // bank1
+    // var bank1Data = {'bank':'bank1',
+    //     2015 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2016 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2017 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ] 
+    // }
+    // // bank2
+    // var bank2Data = {'bank':'bank2',
+    //     2015 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2016 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2017 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ] 
+    // }
+    // // bank3
+    // var bank3Data = {'bank':'bank3',
+    //     2015 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2016 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2017 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ] 
+    // }
+    // // bank4
+    // var bank4Data = {'bank':'bank4',
+    //     2015 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2016 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ],
+    //     2017 : [
+    //         {'month':1,'y':randomScalingFactor()},
+    //         {'month':2,'y':randomScalingFactor()},
+    //         {'month':3,'y':randomScalingFactor()},
+    //         {'month':4,'y':randomScalingFactor()},
+    //         {'month':5,'y':randomScalingFactor()},
+    //         {'month':6,'y':randomScalingFactor()},
+    //         {'month':7,'y':randomScalingFactor()},
+    //         {'month':8,'y':randomScalingFactor()},
+    //         {'month':9,'y':randomScalingFactor()},
+    //         {'month':10,'y':randomScalingFactor()},
+    //         {'month':11,'y':randomScalingFactor()},
+    //         {'month':12,'y':randomScalingFactor()}
+    //     ] 
+    // }
+    
     // bank1
     var bank1Data = {'bank':'bank1',
-        2015 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
-        2016 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
         2017 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
+            {'month':1,'y':null},
+            {'month':2,'y':null},
+            {'month':3,'y':null},
+            {'month':4,'y':null},
+            {'month':5,'y':null},
+            {'month':6,'y':null},
+            {'month':7,'y':null},
+            {'month':8,'y':null},
+            {'month':9,'y':null},
+            {'month':10,'y':null},
+            {'month':11,'y':null},
+            {'month':12,'y':null}
         ] 
     }
     // bank2
     var bank2Data = {'bank':'bank2',
-        2015 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
-        2016 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
         2017 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
+            {'month':1,'y':null},
+            {'month':2,'y':null},
+            {'month':3,'y':null},
+            {'month':4,'y':null},
+            {'month':5,'y':null},
+            {'month':6,'y':null},
+            {'month':7,'y':null},
+            {'month':8,'y':null},
+            {'month':9,'y':null},
+            {'month':10,'y':null},
+            {'month':11,'y':null},
+            {'month':12,'y':null}
         ] 
     }
     // bank3
     var bank3Data = {'bank':'bank3',
-        2015 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
-        2016 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
         2017 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
+            {'month':1,'y':null},
+            {'month':2,'y':null},
+            {'month':3,'y':null},
+            {'month':4,'y':null},
+            {'month':5,'y':null},
+            {'month':6,'y':null},
+            {'month':7,'y':null},
+            {'month':8,'y':null},
+            {'month':9,'y':null},
+            {'month':10,'y':null},
+            {'month':11,'y':null},
+            {'month':12,'y':null}
         ] 
     }
     // bank4
     var bank4Data = {'bank':'bank4',
-        2015 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
-        2016 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
-        ],
         2017 : [
-            {'month':1,'y':randomScalingFactor()},
-            {'month':2,'y':randomScalingFactor()},
-            {'month':3,'y':randomScalingFactor()},
-            {'month':4,'y':randomScalingFactor()},
-            {'month':5,'y':randomScalingFactor()},
-            {'month':6,'y':randomScalingFactor()},
-            {'month':7,'y':randomScalingFactor()},
-            {'month':8,'y':randomScalingFactor()},
-            {'month':9,'y':randomScalingFactor()},
-            {'month':10,'y':randomScalingFactor()},
-            {'month':11,'y':randomScalingFactor()},
-            {'month':12,'y':randomScalingFactor()}
+            {'month':1,'y':null},
+            {'month':2,'y':null},
+            {'month':3,'y':null},
+            {'month':4,'y':null},
+            {'month':5,'y':null},
+            {'month':6,'y':null},
+            {'month':7,'y':null},
+            {'month':8,'y':null},
+            {'month':9,'y':null},
+            {'month':10,'y':null},
+            {'month':11,'y':null},
+            {'month':12,'y':null}
         ] 
     }
+    
+// localstorageのアイテムを空にする
+    // localStorage.removeItem("balanceList1");
+    // localStorage.removeItem("balanceList2");
+    // localStorage.removeItem("balanceList3");
+    // localStorage.removeItem("balanceList4");
   
-// localstrageに口座残高データがない場合は作成
-    // // bank1
-    // if(!localStorage.getItem("balanceList1")){
-    //     localStorage.setItem("balanceList1", JSON.stringify(bank1Data));   
-    // }
-    // // bank2
-    // if(!localStorage.getItem("balanceList2")){
-    //     localStorage.setItem("balanceList2", JSON.stringify(bank2Data));   
-    // }
-    // // bank3
-    // if(!localStorage.getItem("balanceList3")){
-    //     localStorage.setItem("balanceList3", JSON.stringify(bank3Data));   
-    // }
-    // // bank4
-    // if(!localStorage.getItem("balanceList4")){
-    //     localStorage.setItem("balanceList4", JSON.stringify(bank4Data));   
-    // }
-// テスト用（毎回テストデータ読み込み）
+// localstorageに口座残高データがない場合は作成
     // bank1
+    if(!localStorage.getItem("balanceList1")){
         localStorage.setItem("balanceList1", JSON.stringify(bank1Data));   
+    }
     // bank2
+    if(!localStorage.getItem("balanceList2")){
         localStorage.setItem("balanceList2", JSON.stringify(bank2Data));   
+    }
     // bank3
+    if(!localStorage.getItem("balanceList3")){
         localStorage.setItem("balanceList3", JSON.stringify(bank3Data));   
+    }
     // bank4
+    if(!localStorage.getItem("balanceList4")){
         localStorage.setItem("balanceList4", JSON.stringify(bank4Data));   
+    }
+// テスト用（毎回テストデータ読み込み）
+    // // bank1
+    //     localStorage.setItem("balanceList1", JSON.stringify(bank1Data));   
+    // // bank2
+    //     localStorage.setItem("balanceList2", JSON.stringify(bank2Data));   
+    // // bank3
+    //     localStorage.setItem("balanceList3", JSON.stringify(bank3Data));   
+    // // bank4
+    //     localStorage.setItem("balanceList4", JSON.stringify(bank4Data));   
 
 // 口座残高データを取得
     //  bank1
     var balances1 = JSON.parse(localStorage.getItem("balanceList1"));
-    for(var i = 0; i < balances1[nowYear].length ; i++){
-        balances1[nowYear][i]['x'] = new Date(nowYear, i, 0);
+    if(balances1){
+        for(var i = 0; i < balances1[nowYear].length ; i++){
+            balances1[nowYear][i]['x'] = new Date(nowYear, i, 0);
+        }        
     }
     //  bank2
     var balances2 = JSON.parse(localStorage.getItem("balanceList2"));
-    for(var i = 0; i < balances2[nowYear].length ; i++){
-        balances2[nowYear][i]['x'] = new Date(nowYear, i, 0);
+    if(balances2){
+        for(var i = 0; i < balances2[nowYear].length ; i++){
+            balances2[nowYear][i]['x'] = new Date(nowYear, i, 0);
+        }        
     }
     //  bank3
     var balances3 = JSON.parse(localStorage.getItem("balanceList3"));
-    for(var i = 0; i < balances3[nowYear].length ; i++){
-        balances3[nowYear][i]['x'] = new Date(nowYear, i, 0);
+    if(balances3){
+        for(var i = 0; i < balances3[nowYear].length ; i++){
+            balances3[nowYear][i]['x'] = new Date(nowYear, i, 0);
+        }        
     }
     //  bank4
     var balances4 = JSON.parse(localStorage.getItem("balanceList4"));
-    for(var i = 0; i < balances4[nowYear].length ; i++){
-        balances4[nowYear][i]['x'] = new Date(nowYear, i, 0);
+    if(balances4){
+        for(var i = 0; i < balances4[nowYear].length ; i++){
+            balances4[nowYear][i]['x'] = new Date(nowYear, i, 0);
+        }        
     }
 
     var localAData = balances1;
@@ -279,16 +362,37 @@
 //************************************************************
 // グラフに渡すデータを作成
     // グラフ用データを作成
-    var AData = localAData[nowYear];
-    var BData = localBData[nowYear];
-    var CData = localCData[nowYear];
-    var DData = localDData[nowYear];    
-    var data = [
-        AData,
-        BData,
-        CData,
-        DData
-    ];
+    var AData;
+    var BData;
+    var CData;
+    var DData;
+    var data = [];
+    if(localAData[nowYear]){
+        AData = localAData[nowYear];
+        data.push(AData);
+    }
+    if(localBData[nowYear]){
+        BData = localBData[nowYear];
+        data.push(BData);
+    }
+    if(localCData[nowYear]){
+        CData = localCData[nowYear];
+        data.push(CData);
+    }
+    if(localDData[nowYear]){
+        DData = localDData[nowYear]; 
+        data.push(DData);
+    }
+    // var AData = localAData[nowYear];
+    // var BData = localBData[nowYear];
+    // var CData = localCData[nowYear];
+    // var DData = localDData[nowYear];    
+    // var data = [
+    //     AData,
+    //     BData,
+    //     CData,
+    //     DData
+    // ];
     
     // 折れ線描画色を作成
     var colors = [
